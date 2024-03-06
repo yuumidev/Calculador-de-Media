@@ -1,0 +1,49 @@
+#Lista para armazenar as notas.
+notas = []
+
+#Função que calcula as médias.
+def calcular_media():
+    if not notas:
+        print('\nNão foi adcionado nenhuma nota ainda.')
+        return    
+    media = sum(notas) / len(notas)
+    return media
+
+#Função para verificar se o Aluno foi Aprovado ou Reprovado.
+def verificar_situacao(media):
+    if media == 10:
+        print('\nParabéns, sua média é 10')
+    elif media >= 7:
+        print('\nAprovado')
+    elif media < 7:
+        print('\nReprovado')
+
+#Loop do Programa
+while True:
+    print('\nCalcular sua Média')
+    print('1. Adicionar uma nota.')
+    print('2. Ver a média das notas.')
+    print('3. Verificar Situação.')
+    print('4. Sair. ')
+    opçao = input('\nDigite sua opção: ')
+
+    if opçao == '1':
+        notas_alunos = float(input('\nDigite sua nota: '))
+        notas.append(notas_alunos)
+
+    elif opçao == '2':
+        media_notas = calcular_media()
+        if media_notas:
+            print(f'\nA média das notas é: {media_notas:.2f}')
+
+    elif opçao == '3':
+        media_notas = calcular_media()
+        if media_notas:
+            verificar_situacao(media_notas)
+    
+    elif opçao == '4':
+        print('\nAté a Próxima!')
+        break
+
+    else: 
+        print('\nOpção Inválida. Tente Novamente...')
